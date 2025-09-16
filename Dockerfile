@@ -7,7 +7,8 @@ RUN rm -rf /app && \
 
 WORKDIR /app/
 
-COPY bh/*.jar app.jar
+COPY app.jar app.jar
+
 
 RUN chmod 755 app.jar
 
