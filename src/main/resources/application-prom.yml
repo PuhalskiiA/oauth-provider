@@ -1,0 +1,24 @@
+spring:
+  config:
+    import:
+      - vault-yaml://${SECMAN_APPLICATION_CONFIG_PATH}
+  cloud:
+    vault:
+      enabled: true
+      uri: ${SECMAN_VAULT_URI}
+      namespace: ${SECMAN_NAMESPACE}
+      authentication: KUBERNETES
+      kubernetes:
+        role: ${SECMAN_ROLE}
+        kubernetes-path: ${SECMAN_AUTH_PATH}
+        service-account-token-file: /var/run/secrets/kubernetes.io/serviceaccount/token
+      config:
+        lifecycle:
+          enabled: true
+          min-renewal: 30s
+          expiry-threshold: 5m
+      session:
+        lifecycle:
+          enabled: true
+          refresh-before-expiry: 10s
+          expiry-threshold: 10m

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: "oauth-service"
+    version: "1.0.0"
+    build-id: "local"
+  cloud:
+    vault:
+      enabled: false
+
+oauth-service:
+  base-path: "/api/v1/oauth"
+  providers:
+    sudir:
+      authorization-uri:
+      tokens-uri:
+      redirect-uri:
+      client-id: CI10071761_EXTRA1
+      grant-type: authorization_code
+      response-type: code
+      scopes:
+        - openid
+        - basic

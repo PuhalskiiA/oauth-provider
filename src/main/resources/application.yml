@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+spring:
+  banner:
+    charset: UTF-8
+    location: banner.txt
+  application:
+    name: "@project.name@"
+    version: "@project.version@"
+    build-id: "@project.ci.buildId@"
+  web:
+    resources:
+      static-locations: classpath:/static/
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.vault: INFO
+  pattern:
+    level: "%5p [%X{traceId:-}]"
+    correlation: ""
+
+management:
+  tracing:
+    enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+  endpoint:
+    health:
+      group:
+        readiness:
+          include: "*"
+          show-details: always
+        liveness:
+          include: "ping"
+          show-details: never
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "health, metrics"

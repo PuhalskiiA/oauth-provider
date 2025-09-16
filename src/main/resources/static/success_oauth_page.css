@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #334155;
+    line-height: 1.6;
+    text-align: center;
+}
+
+h1 {
+    color: #1e293b;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+p {
+    color: #64748b;
+    font-size: 18px;
+    margin-bottom: 24px;
+    font-weight: 400;
+}
+
+/* Контейнер для таймера и кнопки */
+.actions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#countdown {
+    color: #475569;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.redirect-link {
+    display: inline-block;
+    background: linear-gradient(135deg, #475569 0%, #334155 100%);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 36px;
+    border-radius: 20px; /* Увеличил закругление */
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 8px 24px rgba(71, 85, 105, 0.2),
+        0 4px 12px rgba(51, 65, 85, 0.15);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.redirect-link:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 12px 32px rgba(71, 85, 105, 0.25),
+        0 6px 16px rgba(51, 65, 85, 0.2);
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+}
+
+/* Логотип чемодана */
+.suitcase-logo {
+    margin-bottom: 40px;
+    font-size: 64px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Анимация появления */
+h1, p, .actions-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 520px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .suitcase-logo {
+        font-size: 48px;
+        margin-bottom: 30px;
+    }
+
+    .actions-container {
+        gap: 12px;
+    }
+
+    #countdown {
+        font-size: 14px;
+    }
+
+    .redirect-link {
+        padding: 14px 32px;
+        font-size: 15px;
+        border-radius: 18px;
+    }
+}
+
+/* Состояние фокуса для доступности */
+.redirect-link:focus {
+    outline: 2px solid #94a3b8;
+    outline-offset: 2px;
+}
