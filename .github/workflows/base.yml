@@ -28,6 +28,9 @@ jobs:
           
       - name: Build with Maven
         run: mvn -B clean install
+
+      - name: Show files in workspace
+        run: ls -R
         
       - name: Rename jar for Docker
         run: cp oauth-provider/target/t-services-oauth-*.jar app.jar
