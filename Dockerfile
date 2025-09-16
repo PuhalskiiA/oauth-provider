@@ -9,7 +9,6 @@ WORKDIR /app/
 
 COPY app.jar app.jar
 
-
 RUN chmod 755 app.jar
 
 ENV LC_ALL="ru_RU.UTF-8" \
