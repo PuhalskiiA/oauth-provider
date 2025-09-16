@@ -30,7 +30,7 @@ jobs:
         run: mvn -B clean install
         
       - name: Rename jar for Docker
-        run: cp target/*.jar app.jar
+        run: cp target/t-services-oauth-*.jar app.jar
         
       - name: Upload jar artifact
         uses: actions/upload-artifact@v4
