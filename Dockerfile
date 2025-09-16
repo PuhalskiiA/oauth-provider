@@ -1,4 +1,4 @@
-FROM docker-dev.registry-ci.delta.sbrf.ru/ci04675739/ci04675739/maven-3.9.6-sberjdk21:9.5.0-se
+FROM eclipse-temurin:21-jdk
 
 EXPOSE 8080
 
