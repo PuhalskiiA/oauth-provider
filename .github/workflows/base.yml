@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main", "feature/oauth-service-adding" ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install dependencies
+        run: mvn clean install
+        
