@@ -27,27 +27,3 @@ logging:
   pattern:
     level: "%5p [%X{traceId:-}]"
     correlation: ""
-
-management:
-  tracing:
-    enabled: true
-  health:
-    livenessState:
-      enabled: true
-    readinessState:
-      enabled: true
-  endpoint:
-    health:
-      group:
-        readiness:
-          include: "*"
-          show-details: always
-        liveness:
-          include: "ping"
-          show-details: never
-      probes:
-        enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: "health, metrics"

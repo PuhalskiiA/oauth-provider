@@ -1,8 +1,5 @@
 package ru.sbrf.pprbts.oauth.server.business.service;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.interfaces.Claim;
-import com.auth0.jwt.interfaces.DecodedJWT;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import ru.sbrf.pprbts.oauth.server.business.model.OAuthRefreshTokenRequestDto;
@@ -11,8 +8,6 @@ import ru.sbrf.pprbts.oauth.server.core.utilities.OAuthUtils;
 
 import java.util.UUID;
 import java.util.function.Supplier;
-
-import static ru.sbrf.pprbts.oauth.server.core.utilities.Constants.OAuth.Token;
 
 
 @Slf4j
@@ -53,15 +48,8 @@ public abstract class OAuthServiceProvider {
 
     private OAuthTokensResponseDto receiveTokens(Supplier<OAuthTokensResponseDto> supplier, String operationId) {
         OAuthTokensResponseDto response = supplier.get();
-        logReceivedTokenInfo(response, operationId);
+        log.info("Tokens for operation id: {} was received", operationId);
 
         return response;
-    }
-
-    private void logReceivedTokenInfo(OAuthTokensResponseDto response, String operationId) {
-        DecodedJWT jwt = JWT.decode(response.getIdToken());
-        Claim claim = jwt.getClaims().get(Token.Claim.EMAIL);
-
-        log.info("Tokens for operation id: {} was received. Received token email: {}", operationId, claim.asString());
     }
 }

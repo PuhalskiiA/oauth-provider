@@ -15,7 +15,7 @@ public class SudirApplication {
      * @param args аргументы.
      */
     public static void main(String... args) throws InterruptedException {
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
         SpringApplication.run(SudirApplication.class, args);
     }
 }

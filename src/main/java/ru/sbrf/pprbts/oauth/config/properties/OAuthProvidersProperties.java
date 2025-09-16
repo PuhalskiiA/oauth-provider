@@ -12,5 +12,5 @@ import lombok.ToString;
 public class OAuthProvidersProperties {
 
     @NotNull(message = "Обязательно должны быть указаны параметры для работы с СУДИРом!")
-    private SudirProviderProperties sudir;
+    private YandexProviderProperties yandex;
 }

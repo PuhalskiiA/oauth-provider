@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.sbrf.pprbts.oauth.config.exception.type.ServiceException;
 import ru.sbrf.pprbts.oauth.server.business.model.OAuthRefreshTokenRequestDto;
@@ -22,10 +23,7 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
-
-// TODO: Добавить с Артуром через rlm-сценарий в redirect
-//@RequestMapping("${oauth-service.base-path:/api/v1/oauth}")
-
+@RequestMapping("${oauth-service.base-path:/api/v1/oauth}")
 @Slf4j
 public class OAuthServiceController {
 

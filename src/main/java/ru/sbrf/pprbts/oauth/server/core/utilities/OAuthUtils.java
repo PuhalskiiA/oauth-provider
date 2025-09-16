@@ -16,7 +16,7 @@ public class OAuthUtils {
             throw new IllegalArgumentException("State cannot be null or empty");
         }
 
-        String[] parts = state.split("\\.");
+        String[] parts = state.split(" ");
         if (parts.length < 2) {
             throw new IllegalArgumentException("Invalid state format. Expected: redirectUri.id");
         }
@@ -28,6 +28,6 @@ public class OAuthUtils {
     }
 
     public static String prepareState(String deepLink, UUID operationId) {
-        return "%s.%s".formatted(deepLink, operationId);
+        return "%s%%20%s".formatted(deepLink, operationId);
     }
 }

@@ -1,9 +1,0 @@
-def onDistrib(app, distr) {
-    withMaven(maven: 'Maven 3.9', jdk: 'sberjdk-21', mavenSettingsConfig: 'jenkins_settings')  {
-        sh "mvn clean install -Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true -Dmaven.wagon.http.ssl.ignore.validity.dates=true \
-        -Drepo.mirror=https://sbtnexus.delta.sbrf.ru/nexus/content/groups/public -Dmaven.test.failure.ignore=false -DskipTests -Dheadless.execution=install"
-    };
-    distr.addBH ("./target/*.jar")
-    distr.addDockerItems('chemodan-sudir-client', './Dockerfile')
-}
-return wrapJenkinsfile(this)

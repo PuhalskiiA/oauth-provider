@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b2b7f41-3eea-4041-80f8-0222f5e2bd52" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jenkins" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/SudirApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/SudirApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/config/properties/OAuthProvidersProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/config/properties/OAuthProvidersProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/config/properties/SudirProviderProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/controller/OAuthServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/controller/OAuthServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/model/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/model/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/service/OAuthServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/service/OAuthServiceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/business/service/SudirServiceProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/core/utilities/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/core/utilities/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/core/utilities/OAuthUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/sbrf/pprbts/oauth/server/core/utilities/OAuthUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +43,12 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -55,15 +77,22 @@
     "JUnit.Unnamed.executor": "Run",
     "Maven.t-services-oauth [clean,install].executor": "Run",
     "Remote JVM Debug.Debug.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "feature/TSERVICE-628",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/work/22423562@sigma.sbrf.ru/self/ts-oauth-sudir-client/src/test/java",
-    "last_opened_file_path": "/home/work/22423562@sigma.sbrf.ru/self/t-services-email",
+    "last_opened_file_path": "/Users/mac/package/files/study/maga/base/ts-oauth-sudir-client",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings"
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -78,6 +107,7 @@
       <recent name="$PROJECT_DIR$/src/test/java/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.github/workflows" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/static" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/html" />
@@ -114,10 +144,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="ts-oauth-sudir-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="ts-oauth-sudir-client" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SudirApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="t-services-oauth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.sbrf.pprbts.oauth.SudirApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.SudirApplication" />
       <item itemvalue="JUnit.Unnamed" />
       <item itemvalue="Remote JVM Debug.Debug" />
+      <item itemvalue="Spring Boot.SudirApplication" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -128,8 +179,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1755584323219</updated>
+      <workItem from="1757989035052" duration="5913000" />
+      <workItem from="1758037355862" duration="6758000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

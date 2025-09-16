@@ -8,28 +8,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Scope {
 
-    OPENID("openid"),
+    EMAIL("login:email"),
 
-    BASIC("basic"),
-
-    EXTENDED("extended"),
-
-    ACCESS("access"),
-
-    CERT("cert"),
-
-    SAP("sap"),
-
-    NAME("name"),
-
-    // Да-да, опечатка. Но все согласно доке!
-    PREFFERED_USERNAME("preffered_username"),
-
-    LEGACY("legacy"),
-
-    EMPLOYEE_NUMBER("employee_number"),
-
-    HRP("hrp");
+    INFO("login:info");
 
     private final String value;
 

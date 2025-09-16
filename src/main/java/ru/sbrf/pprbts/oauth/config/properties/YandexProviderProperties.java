@@ -13,7 +13,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
-public class SudirProviderProperties {
+public class YandexProviderProperties {
 
     /**
      * URI для страницы авторизации.
@@ -28,16 +28,16 @@ public class SudirProviderProperties {
     private String tokensUri;
 
     /**
-     * URI для перенаправления кода аутентификации.
-     */
-    @NotBlank(message = "Redirect URI не должно быть пустым")
-    private String redirectUri;
-
-    /**
      * Идентификатор клиента (Client ID) приложения.
      */
     @NotBlank(message = "Client ID не должен быть пустым")
     private String clientId;
+
+    /**
+     * Секрет приложения.
+     */
+    @NotBlank(message = "Client secret не должен быть пустым")
+    private String clientSecret;
 
     /**
      * Тип гранта (grant type), например: password, client_credentials.

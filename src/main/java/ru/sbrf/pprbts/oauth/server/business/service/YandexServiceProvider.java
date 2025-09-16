@@ -14,7 +14,7 @@ import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.sbrf.pprbts.oauth.config.exception.type.TokenExchangeException;
 import ru.sbrf.pprbts.oauth.config.properties.OAuthServiceProperties;
-import ru.sbrf.pprbts.oauth.config.properties.SudirProviderProperties;
+import ru.sbrf.pprbts.oauth.config.properties.YandexProviderProperties;
 import ru.sbrf.pprbts.oauth.server.business.model.ErrorTokenExchangeResponseDto;
 import ru.sbrf.pprbts.oauth.server.business.model.OAuthRefreshTokenRequestDto;
 import ru.sbrf.pprbts.oauth.server.business.model.OAuthTokensResponseDto;
@@ -29,7 +29,7 @@ import static ru.sbrf.pprbts.oauth.server.core.utilities.Constants.OAuth;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class SudirServiceProvider extends OAuthServiceProvider {
+public class YandexServiceProvider extends OAuthServiceProvider {
 
     private final OAuthServiceProperties oAuthServiceProperties;
 
@@ -39,15 +39,15 @@ public class SudirServiceProvider extends OAuthServiceProvider {
 
     @Override
     protected String prepareAuthorizeUriImpl(@NonNull String state) {
-        SudirProviderProperties sudirProviderProperties = oAuthServiceProperties.getProviders()
-                .getSudir();
+        YandexProviderProperties yandexProviderProperties = oAuthServiceProperties.getProviders()
+                .getYandex();
         String scopes = prepareScopes();
 
-        return UriComponentsBuilder.fromUriString(sudirProviderProperties.getAuthorizationUri())
-                .queryParam(OAuth.RequestParams.RESPONSE_TYPE, sudirProviderProperties.getResponseType())
-                .queryParam(OAuth.RequestParams.CLIENT_ID, sudirProviderProperties.getClientId())
+        return UriComponentsBuilder.fromUriString(yandexProviderProperties.getAuthorizationUri())
+                .queryParam(OAuth.RequestParams.RESPONSE_TYPE, yandexProviderProperties.getResponseType())
+                .queryParam(OAuth.RequestParams.CLIENT_ID, yandexProviderProperties.getClientId())
+                .queryParam(OAuth.RequestParams.CLIENT_SECRET, yandexProviderProperties.getClientSecret())
                 .queryParam(OAuth.RequestParams.SCOPE, scopes)
-                .queryParam(OAuth.RequestParams.REDIRECT_URI, sudirProviderProperties.getRedirectUri())
                 .queryParam(OAuth.RequestParams.STATE, state)
                 .build()
                 .toUriString();
@@ -64,12 +64,12 @@ public class SudirServiceProvider extends OAuthServiceProvider {
     }
 
     private OAuthTokensResponseDto exchangeTokens(MultiValueMap<String, String> body) {
-        SudirProviderProperties sudirProviderProperties = oAuthServiceProperties.getProviders()
-                .getSudir();
+        YandexProviderProperties yandexProviderProperties = oAuthServiceProperties.getProviders()
+                .getYandex();
 
         ResponseEntity<OAuthTokensResponseDto> responseEntity = restClient
                 .post()
-                .uri(sudirProviderProperties.getTokensUri())
+                .uri(yandexProviderProperties.getTokensUri())
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(body)
                 .retrieve()
@@ -93,37 +93,37 @@ public class SudirServiceProvider extends OAuthServiceProvider {
     }
 
     private MultiValueMap<String, String> prepareTokensRequestBody(@NonNull String code) {
-        SudirProviderProperties sudirProviderProperties = oAuthServiceProperties.getProviders()
-                .getSudir();
+        YandexProviderProperties yandexProviderProperties = oAuthServiceProperties.getProviders()
+                .getYandex();
         String scopes = prepareScopes();
 
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
 
-        formData.add(OAuth.RequestParams.GRANT_TYPE, sudirProviderProperties.getGrantType());
+        formData.add(OAuth.RequestParams.GRANT_TYPE, yandexProviderProperties.getGrantType());
         formData.add(OAuth.RequestParams.CODE, code);
-        formData.add(OAuth.RequestParams.REDIRECT_URI, sudirProviderProperties.getRedirectUri());
-        formData.add(OAuth.RequestParams.CLIENT_ID, sudirProviderProperties.getClientId());
+        formData.add(OAuth.RequestParams.CLIENT_SECRET, yandexProviderProperties.getClientSecret());
+        formData.add(OAuth.RequestParams.CLIENT_ID, yandexProviderProperties.getClientId());
         formData.add(OAuth.RequestParams.SCOPE, scopes);
 
         return formData;
     }
 
     private MultiValueMap<String, String> prepareTokensRefreshRequestBody(@NonNull String refreshToken) {
-        SudirProviderProperties sudirProviderProperties = oAuthServiceProperties.getProviders()
-                .getSudir();
+        YandexProviderProperties yandexProviderProperties = oAuthServiceProperties.getProviders()
+                .getYandex();
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
 
         formData.add(OAuth.RequestParams.GRANT_TYPE, OAuth.GrantType.REFRESH_TOKEN);
         formData.add(OAuth.RequestParams.REFRESH_TOKEN, refreshToken);
-        formData.add(OAuth.RequestParams.CLIENT_ID, sudirProviderProperties.getClientId());
+        formData.add(OAuth.RequestParams.CLIENT_ID, yandexProviderProperties.getClientId());
 
         return formData;
     }
 
     private String prepareScopes() {
-        SudirProviderProperties sudirProviderProperties = oAuthServiceProperties.getProviders()
-                .getSudir();
-        return sudirProviderProperties.getScopes()
+        YandexProviderProperties yandexProviderProperties = oAuthServiceProperties.getProviders()
+                .getYandex();
+        return yandexProviderProperties.getScopes()
                 .stream()
                 .map(Scope::getValue)
                 .collect(Collectors.joining("%20"));
