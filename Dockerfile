@@ -15,7 +15,6 @@ ENV LC_ALL="ru_RU.UTF-8" \
     LANG="ru_RU.UTF-8" \
     LANGUAGE="ru_RU.UTF-8"
 
-
 ENV INTERNAL_ARGS="\
 -Dfile.encoding=UTF-8 \
 -Dsun.stderr.encoding=UTF-8 \
