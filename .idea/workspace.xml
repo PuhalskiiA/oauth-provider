@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b2b7f41-3eea-4041-80f8-0222f5e2bd52" name="Changes" comment="" />
+    <list default="true" id="0b2b7f41-3eea-4041-80f8-0222f5e2bd52" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +72,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "MavenSettings",
@@ -162,7 +164,7 @@
       <option name="presentableId" value="Default" />
       <updated>1755584323219</updated>
       <workItem from="1757989035052" duration="5913000" />
-      <workItem from="1758037355862" duration="7092000" />
+      <workItem from="1758037355862" duration="7765000" />
     </task>
     <servers />
   </component>
