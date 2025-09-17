@@ -83,7 +83,10 @@ jobs:
           printf "%s" "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
       
       - name: Test kubeconfig
-        run: kubectl get nodes
+        run: |
+          export KUBECONFIG=$HOME/.kube/config
+          nc -z localhost 8443
+          kubectl get nodes
         env:
           KUBECONFIG: $HOME/.kube/config
       
@@ -93,3 +96,6 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
+
+      - name: Kill SSH tunnel
+        run: kill $SSH_PID
