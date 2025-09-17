@@ -58,16 +58,20 @@ jobs:
         uses: azure/setup-kubectl@v3
         with:
           version: 'v1.28.0'
-
+          
+      - name: Setup kubeconfig
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+      
       - name: Test kubeconfig
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIG: $HOME/.kube/config
         run: kubectl get nodes
-          
+      
       - name: Deploy to Minikube
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIG: $HOME/.kube/config
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
-
