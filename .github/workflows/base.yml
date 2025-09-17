@@ -63,7 +63,7 @@ jobs:
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-          cat $HOME/.kube/config
+          grep 'server:' $HOME/.kube/config
 
       - name: Test kubeconfig
         env:
