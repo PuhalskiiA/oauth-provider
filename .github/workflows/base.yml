@@ -63,6 +63,11 @@ jobs:
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+
+      - name: Test kubeconfig
+        env:
+          KUBECONFIG: $HOME/.kube/config
+        run: kubectl get nodes
           
       - name: Deploy to Minikube
         env:
