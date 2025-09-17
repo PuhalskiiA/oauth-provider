@@ -89,6 +89,8 @@ jobs:
           kubectl get nodes
         env:
           KUBECONFIG: $HOME/.kube/config
+      - name: Show k8s files
+        run: ls -R ./k8s
             
       - name: Deploy to Minikube
         run: |
