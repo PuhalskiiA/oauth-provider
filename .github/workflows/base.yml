@@ -59,20 +59,14 @@ jobs:
         with:
           version: 'v1.28.0'
 
-      - name: Setup kubeconfig
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-          grep 'server:' $HOME/.kube/config
-
       - name: Test kubeconfig
         env:
-          KUBECONFIG: $HOME/.kube/config
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: kubectl get nodes
           
       - name: Deploy to Minikube
         env:
-          KUBECONFIG: $HOME/.kube/config
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
