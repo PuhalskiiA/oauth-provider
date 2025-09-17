@@ -40,3 +40,7 @@ Dockerfile,6/6/6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 +.github/workflows/pipeline.yml/pipeline.yml,6/d/6d76bbffbd7b4d19b77046e153e7966cab6fb91e
 N
 .github/workflows/pipeline.yml,b/9/b97ca11e5d4cdbecf679ebb407219c551439be09
+B
+k8s/deployment.yml,3/4/34543600f8e48b7ceb358c53e2f43b8ed4abbbb7
+?
+k8s/service.yml,c/0/c01769fb307fff3c0f92521c40326864fe357bf8
