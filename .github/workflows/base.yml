@@ -80,8 +80,8 @@ jobs:
       - name: Setup kubeconfig
         run: |
           mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBECONFIG }}" | sed 's/\\n/\n/g' > $HOME/.kube/config
-          
+          printf "%s\n" "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+            
       - name: Test kubeconfig
         run: |
           export KUBECONFIG=$HOME/.kube/config
@@ -89,7 +89,7 @@ jobs:
           kubectl get nodes
         env:
           KUBECONFIG: $HOME/.kube/config
-      
+            
       - name: Deploy to Minikube
         env:
           KUBECONFIG: $HOME/.kube/config
