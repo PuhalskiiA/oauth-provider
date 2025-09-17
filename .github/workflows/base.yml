@@ -83,9 +83,9 @@ jobs:
           printf "%s" "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
       
       - name: Test kubeconfig
+        run: kubectl get nodes
         env:
           KUBECONFIG: $HOME/.kube/config
-        run: kubectl get nodes
       
       - name: Deploy to Minikube
         env:
