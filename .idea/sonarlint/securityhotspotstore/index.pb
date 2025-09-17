@@ -48,3 +48,5 @@ B
 k8s/config yml,3/3/33cea75d0560a0ec484a8a8ac8febde345ca7a36
 A
 k8s/node_port.yml,8/f/8f3b2b832da858c35f0f0a58a98d66d9d71e1906
+?
+k8s/ingress.yml,b/c/bcd92e0f0e28853c6c801f9afaf8784108bae084
