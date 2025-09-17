@@ -91,11 +91,14 @@ jobs:
           KUBECONFIG: $HOME/.kube/config
             
       - name: Deploy to Minikube
-        env:
-          KUBECONFIG: $HOME/.kube/config
         run: |
+          export KUBECONFIG=$HOME/.kube/config
+          echo "Check tunnel"
+          nc -z localhost 8443
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
+        env:
+          KUBECONFIG: $HOME/.kube/config
 
       - name: Kill SSH tunnel
         run: kill $SSH_PID
