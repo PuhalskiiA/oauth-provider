@@ -66,7 +66,7 @@ jobs:
           
       - name: Forward Minikube API port
         run: |
-          ssh -o StrictHostKeyChecking=no -N -L 8443:127.0.0.1:8443 summit@84.201.178.102 &
+          ssh -o StrictHostKeyChecking=no -N -L 8443:127.0.0.1:32771 summit@84.201.178.102 &
           SSH_PID=$!
           echo "Waiting for tunnel to be ready..."
           for i in {1..10}; do
