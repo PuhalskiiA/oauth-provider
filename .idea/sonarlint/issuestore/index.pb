@@ -44,3 +44,5 @@ B
 k8s/deployment.yml,3/4/34543600f8e48b7ceb358c53e2f43b8ed4abbbb7
 ?
 k8s/service.yml,c/0/c01769fb307fff3c0f92521c40326864fe357bf8
+>
+k8s/config yml,3/3/33cea75d0560a0ec484a8a8ac8febde345ca7a36

@@ -1,24 +1,18 @@
 spring:
-  config:
-    import:
-      - vault-yaml://${SECMAN_APPLICATION_CONFIG_PATH}
   cloud:
     vault:
-      enabled: true
-      uri: ${SECMAN_VAULT_URI}
-      namespace: ${SECMAN_NAMESPACE}
-      authentication: KUBERNETES
-      kubernetes:
-        role: ${SECMAN_ROLE}
-        kubernetes-path: ${SECMAN_AUTH_PATH}
-        service-account-token-file: /var/run/secrets/kubernetes.io/serviceaccount/token
-      config:
-        lifecycle:
-          enabled: true
-          min-renewal: 30s
-          expiry-threshold: 5m
-      session:
-        lifecycle:
-          enabled: true
-          refresh-before-expiry: 10s
-          expiry-threshold: 10m
+      enabled: false
+
+oauth-service:
+  base-path: "/api/v1/oauth"
+  providers:
+    yandex:
+      authorization-uri: https://oauth.yandex.ru/authorize
+      tokens-uri: https://oauth.yandex.ru/token
+      client-id: 0b9d3ea2915d43e897584d7dbf0a7267
+      client-secret: feeb5d67ccbd4605ae4afe4cb9a48c63
+      grant-type: authorization_code
+      response-type: code
+      scopes:
+        - email
+        - info
