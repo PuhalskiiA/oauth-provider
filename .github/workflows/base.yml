@@ -57,8 +57,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/oauth-provider:latest
-
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/oauth-provider:${{ github.sha }}
+          
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
@@ -104,10 +104,10 @@ jobs:
           kubectl apply -f ./k8s/deployment.yml
           kubectl apply -f ./k8s/service.yml
           kubectl apply -f ./k8s/ingress.yml
-
+          
           kubectl set image deployment/oauth-provider \
-            oauth-provider=${{ secrets.DOCKERHUB_USERNAME }}/oauth-provider:latest
+            oauth-provider=w8404gg/oauth-provider:${{ github.sha }}
         
-            kubectl rollout status deployment/oauth-provider
+          kubectl rollout status deployment/oauth-provider
         env:
           KUBECONFIG: $HOME/.kube/config
