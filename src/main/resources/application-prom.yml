@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    vault:
+      enabled: false
+
+oauth-service:
+  base-path: "/api/v1/oauth"
+  providers:
+    yandex:
+      authorization-uri: https://oauth.yandex.ru/authorize
+      tokens-uri: https://oauth.yandex.ru/token
+      client-id: 0b9d3ea2915d43e897584d7dbf0a7267
+      client-secret: feeb5d67ccbd4605ae4afe4cb9a48c63
+      grant-type: authorization_code
+      response-type: code
+      scopes:
+        - email
+        - info

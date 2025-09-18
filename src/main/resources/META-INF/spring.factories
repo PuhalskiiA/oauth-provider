@@ -1,0 +1,5 @@
+org.springframework.boot.context.config.ConfigDataLoader=\
+ru.sbrf.pprbts.oauth.config.secman.VaultYamlConfigDataLoader
+
+org.springframework.boot.context.config.ConfigDataLocationResolver=\
+ru.sbrf.pprbts.oauth.config.secman.VaultYamlConfigDataLocationResolver
