@@ -9,7 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    outputs:
+      jar-path: app.jar
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -45,7 +46,20 @@ jobs:
         with:
           name: app-jar
           path: app.jar
-          
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download jar artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-jar
+          path: .
+
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
@@ -58,7 +72,14 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/oauth-provider:${{ github.sha }}
-          
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: docker
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Set up kubectl
         uses: azure/setup-kubectl@v3
         with:
@@ -89,6 +110,7 @@ jobs:
           kubectl get nodes
         env:
           KUBECONFIG: $HOME/.kube/config
+
       - name: Show k8s files
         run: ls -R ./k8s
             
