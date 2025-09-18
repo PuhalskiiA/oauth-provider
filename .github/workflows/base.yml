@@ -116,5 +116,20 @@ jobs:
             
       - name: Deploy to Minikube
         run: |
-          sleep 50
-          echo "success"
+          export KUBECONFIG=$HOME/.kube/config
+          
+          until nc -z localhost 8443; do
+            echo "Waiting for Minikube API..."
+            sleep 2
+          done
+      
+          kubectl apply -f ./k8s/deployment.yml
+          kubectl apply -f ./k8s/service.yml
+          kubectl apply -f ./k8s/ingress.yml
+          
+          kubectl set image deployment/oauth-provider \
+            oauth-provider=w8404gg/oauth-provider:${{ github.sha }}
+        
+          kubectl rollout status deployment/oauth-provider
+        env:
+          KUBECONFIG: $HOME/.kube/config
