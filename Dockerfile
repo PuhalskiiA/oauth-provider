@@ -36,4 +36,5 @@ RUN adduser -u 1001 --no-create-home --shell /sbin/nologin appuser && \
     chown -R appuser:appuser /app/
 USER appuser
 
+
 ENTRYPOINT exec java $JAVA_OPTS $INTERNAL_ARGS -jar ./app.jar
