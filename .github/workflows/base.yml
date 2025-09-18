@@ -115,4 +115,6 @@ jobs:
         run: ls -R ./k8s
             
       - name: Deploy to Minikube
-        run: echo "success"
+        run: |
+          sleep 50
+          echo "success"
